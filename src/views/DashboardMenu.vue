@@ -15,7 +15,3 @@ export default {
   <Menu/>
   <Footer class="w-full bg-red-500 py-3 fixed bottom-0 z-40 flex items-center justify-center"/>
 </template>
-
-<style scoped>
-
-</style>

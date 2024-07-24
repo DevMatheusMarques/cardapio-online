@@ -39,7 +39,7 @@ export default {
     <img
         :src="src"
         :alt="alt"
-        class="w-28 h-28 rounded-md mt-2.5 hover:scale-110 hover:-rotate-2 duration-300">
+        class="w-28 h-28 rounded-md mt-5 sm:mt-0.5 md:mt-5 lg:mt-0.5 2xl:mt-5 hover:scale-110 hover:-rotate-2 duration-300">
 
     <div class="w-full">
       <p class="font-bold">{{ dataName }}</p>
@@ -57,6 +57,3 @@ export default {
   </div>
 </template>
 
-<style scoped>
-/* Adicione estilos adicionais aqui, se necessário */
-</style>

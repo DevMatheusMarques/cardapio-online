@@ -13,7 +13,3 @@ export default {
         class="text-lg text-white"/>
   </button>
 </template>
-
-<style scoped>
-
-</style>
