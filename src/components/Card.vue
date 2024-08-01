@@ -21,7 +21,7 @@ export default {
     dataPrice: {
       type: Number,
       required: true
-    }
+    },
   },
   computed: {
     formattedPrice() {
@@ -30,7 +30,8 @@ export default {
         currency: 'BRL',
       }).format(this.dataPrice);
     }
-  }
+  },
+  emits: ['click']
 }
 </script>
 
@@ -47,7 +48,7 @@ export default {
 
       <div class="flex items-center gap-2 justify-between mt-3">
         <p class="font-bold text-lg">{{ formattedPrice }}</p>
-        <button class="bg-gray-900 px-5 py-2 rounded text-white hover:bg-gray-700">
+        <button class="bg-gray-900 px-5 py-2 rounded text-white hover:bg-gray-700 add-cart-btn"  @click="$emit('click', { name: dataName, price: dataPrice })">
           <font-awesome-icon
               icon="fa fa-cart-plus"
               class="text-lg"/>
@@ -56,4 +57,3 @@ export default {
     </div>
   </div>
 </template>
-

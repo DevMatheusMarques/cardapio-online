@@ -1,6 +1,6 @@
 <script>
 export default {
-  name: "Cart"
+  name: "Cart",
 }
 </script>
 
@@ -17,22 +17,24 @@ export default {
             id="address"
             placeholder="Digite seu endereço"
             class="w-full border-2 p-1 rounded my-1"
-            required>
-      </div>
+            required
+        >
 
-      <p class="font-bold mt-4">Observação:</p>
-      <input
-          type="text"
-          name="observation"
-          id="observation"
-          placeholder="Digite seu endereço"
-          class="w-full border-2 p-1 rounded my-1" required>
+        <p class="text-red-500 hidden mt-5 mb-5" id="address-warn">Digite seu endereço completo!</p>
 
-      <p class="text-red-500 hidden" id="address-warn">Digite seu endereço completo!</p>
+        <p class="font-bold mt-4">Observação:</p>
+        <input
+            type="text"
+            name="observation"
+            id="observation"
+            placeholder="Digite seu endereço"
+            class="w-full border-2 p-1 rounded my-1"
+        >
 
-      <div class="flex items-center justify-between mt-5 w-full">
-        <button id="close-btn">Fechar</button>
-        <button id="checkout-bnt" class="bg-green-500 text-white px-4 py-1 rounded">Finalizar Pedido</button>
+        <div class="flex items-center justify-between mt-5 w-full">
+          <button id="close-modal-btn">Fechar</button>
+          <button id="checkout-bnt" class="bg-green-500 text-white px-4 py-1 rounded">Finalizar Pedido</button>
+        </div>
       </div>
   </div>
 </template>
