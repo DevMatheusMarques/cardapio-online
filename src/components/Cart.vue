@@ -10,6 +10,16 @@ export default {
         <h2 class="text-center font-bold text-2xl mb-2">Meu Carrinho</h2>
         <div id="cart-items" class="flex justify-between mb-2 flex-col"></div>
         <p class="font-bold">Total: <span id="cart-total">0.00</span></p>
+        <p class="font-bold mt-4">Informe seu nome:</p>
+        <input
+            type="text"
+            name="name"
+            id="name"
+            placeholder="Digite seu nome para podermos identificar o pedido"
+            class="w-full border-2 p-1 rounded my-1"
+            required
+        >
+
         <p class="font-bold mt-4">Endereço de Entrega:</p>
         <input
             type="text"

@@ -120,10 +120,11 @@ export function finishOrder(context) {
             .map((item) => `- ${item.name} (Quantidade: ${item.quantity}, Preço: R$ ${item.price.toFixed(2)})`)
             .join("\n");
 
+        const client = context.clientInput.value;
         const address = context.addressInput.value;
         const phone = "18991532494";
 
-        const message = encodeURI(`Pedido:\n${cartItems}\n\nEndereço de entrega: ${address}`);
+        const message = encodeURI(`Cliente: ${client}\n\nPedido:\n${cartItems}\n\nEndereço de entrega: ${address}`);
 
         window.open(`https://wa.me/${phone}?text=${message}`, "_blank");
 

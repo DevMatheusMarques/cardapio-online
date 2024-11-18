@@ -24,6 +24,7 @@ export default {
     this.closeModalBtn = document.getElementById("close-modal-btn");
     this.cartCounter = document.getElementById("cart-count");
     this.addressInput = document.getElementById("address");
+    this.clientInput = document.getElementById("name");
     this.addressWarn = document.getElementById("address-warn");
     alertAddress(this);
     finishOrder(this);
