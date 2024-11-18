@@ -98,35 +98,37 @@ export function alertAddress(context) {
 
 export function finishOrder(context) {
     context.checkoutBtn.addEventListener("click", function (event) {
-        const isOpen = checkRestaurantOpen()
+        const isOpen = checkRestaurantOpen();
 
         if (!isOpen) {
             showAlert('Restaurante fechado no momento!', 2500);
+            return;
         }
 
-        if (cart.length === 0) return;
+        if (cart.length === 0) {
+            showAlert('Seu carrinho está vazio!', 2500);
+            return;
+        }
+
         if (context.addressInput.value === "") {
             context.addressWarn.classList.remove("hidden");
-            context.addressInput.classList.add("border-red-500")
+            context.addressInput.classList.add("border-red-500");
+            return;
         }
-        const cartItems = cart.map((item) => {
-            return (`
-                ${item.name} Quantidade: (${item.quantity}) Preço: R$ ${item.price} |
-            `)
-        }).join("");
-        const message = encodeURI(cartItems);
+
+        const cartItems = cart
+            .map((item) => `- ${item.name} (Quantidade: ${item.quantity}, Preço: R$ ${item.price.toFixed(2)})`)
+            .join("\n");
+
+        const address = context.addressInput.value;
         const phone = "18991532494";
 
-        let addressInput = document.getElementById("address");
+        const message = encodeURI(`Pedido:\n${cartItems}\n\nEndereço de entrega: ${address}`);
 
-        if (addressInput === '') {
-            showAlert('Informe seu endereço de entrega!', 2500);
-            return;
-        } else if (addressInput !== ''){
-            window.open(`https://wa.me/${phone}?text=${message} Endereço: ${addressInput.value}`, "_blank");
-            cart.length = 0;
-            updateCartModal()
-        }
+        window.open(`https://wa.me/${phone}?text=${message}`, "_blank");
+
+        cart.length = 0;
+        updateCartModal();
     });
 }
 
